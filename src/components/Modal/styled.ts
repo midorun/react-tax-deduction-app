@@ -10,5 +10,30 @@ export const Modal = styled.div`
 export const Overlay = styled.div`
   width: 100%;
   height: 100%;
-  background: ${COLORS.GRAY};
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Inner = styled.div`
+  padding: 32px;
+  width: 25%;
+  height: 75%;
+  background: ${COLORS.WHITE};
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+`;
+
+export const Title = styled.h1`
+  font-size: 1.75rem;
+`;
+
+export const Subtitle = styled.h2`
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: ${COLORS.TEXT_GRAY};
+  line-height: 24px;
 `;

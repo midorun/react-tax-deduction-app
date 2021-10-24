@@ -9,7 +9,7 @@ export type TModalProps = {
   closeModal: () => void
 }
 
-const Modal: FC<TModalProps> = ({container, showModal, closeModal}) => {
+const Modal: FC<TModalProps> = ({container, showModal, closeModal, children}) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -19,20 +19,12 @@ const Modal: FC<TModalProps> = ({container, showModal, closeModal}) => {
 
   return showModal ? (
     ReactDOM.createPortal(
-      <ST.Modal onClick={(e) => handleClickOutside(e)}>
-        <ST.Overlay>
+      <ST.Modal >
+        <ST.Overlay onClick={(e) => handleClickOutside(e)}/>
           <ST.Inner ref={ref}>
-            <ST.Title>Налоговый вычет</ST.Title>
-            <ST.Subtitle>
-              Используйте налоговый вычет чтобы погасить ипотеку досрочно.
-              Размер налогового вычета составляет не более 13% от своего официального годового дохода.
-            </ST.Subtitle>
-
-            {/*<ST.InputWrapper>*/}
-            {/*  <ST.InputTitle>Ваша зарплата в месяц</ST.InputTitle>*/}
-            {/*</ST.InputWrapper>*/}
+            {children}
           </ST.Inner>
-        </ST.Overlay>
+
       </ST.Modal>
       , container)
   ) : null;

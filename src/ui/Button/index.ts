@@ -3,13 +3,15 @@ import styled from 'styled-components/macro';
 import { COLORS } from 'constants/colors';
 
 type TButtonProps = {
-  width: string,
-  height: string
+  width?: string,
+  height?: string,
+  padding?: string
 }
 
 const Button = styled.div<TButtonProps>`
   width: ${({width}) => width};
   height: ${({height}) => height};
+  padding: ${({padding}) => padding};
   display: flex;
   justify-content: center;
   align-items: center;
